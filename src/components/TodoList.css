@@ -1,0 +1,9 @@
+.todos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 90%;
+    flex-wrap: wrap;
+    margin: 10px;
+    align-items: center;
+}

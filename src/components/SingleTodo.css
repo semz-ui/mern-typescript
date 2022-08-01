@@ -1,0 +1,36 @@
+.todos_single {
+    display: flex;
+    width: 29.50%;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 15px;
+    background-color: orange;
+}
+
+.todos__single__text {
+    flex: 1;
+    padding: 5px;
+    border: none;
+    font-size: 20px;
+}
+
+.todos__single__text:focus {
+    outline: none;
+}
+
+.icon {
+   margin-left: 10px;
+   font-size: 25px;
+   cursor: pointer;
+}
+
+@media(max-width: 1200) {
+    .todos_single {
+        width: 60%;
+    }
+}
+@media(max-width: 780px) {
+    .todos_single {
+        width: 90%;
+    }
+}
