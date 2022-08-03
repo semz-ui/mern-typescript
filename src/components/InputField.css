@@ -11,7 +11,7 @@
     font-size: 25px;
     border: none;
     transition: 0.2s;
-    box-shadow: inset 0 0 5px black;
+    box-shadow: inset 0 0 5px gray;
 }
 .input__box:focus {
     outline: none;
@@ -26,7 +26,7 @@
     right: 0px;
     border: none;
     font-size: 15px;
-    background-color: #2f74c0;
+    background-color: #2f9ec0;
     color: white;
     transition: 0.2s all;
     box-shadow: 0 0 10px black;
