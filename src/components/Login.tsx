@@ -63,7 +63,8 @@ function Login() {
             <input type='password' placeholder="Password"  className='register_form_input' id='password' name='password' value={password} onChange={handleChange} />
           </div>
           <div className='register_form_div'>
-            <input type='submit' placeholder="Register"  className='register_form_btn' />
+            {/* <input type='submit' placeholder="Register"  className='register_form_btn' /> */}
+            <button className='register_form_btn'>Login</button>
           </div>
         </form>
          <div className='forgot_password'>

@@ -81,7 +81,8 @@ function Register() {
             <input  className='register_form_input' type='password' placeholder="Confirm Password" name='password2' id='password2' value={password2} onChange={handleChange} />
           </div>
           <div className='register_form_div'>
-            <input type='submit' placeholder="Register"  className='register_form_btn' />
+            {/* <input type='submit' placeholder="Register"  className='register_form_btn' /> */}
+            <button className='register_form_btn'>Register</button>
           </div>
         </form>
         <div className='forgot_password'>
