@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import './App.css';
-import InputField from './components/InputField';
-import TodoList from './components/TodoList';
-import { Todo } from './model';
+import Dashboard from './components/Dashboard';
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Spinner from "./components/Spinner";
 
 function App() {
-  const [todo, setTodo] = useState<string>("");
-  const [todos, setTodos] = useState<Todo[]>([]);
-
-  const handleAdd = (e: React.FormEvent) => {
-    e.preventDefault();
-    if(todo.length > 0) {
-      setTodos([...todos, {id: Date.now(), todo, isDone: false}]);
-      setTodo("");
-    }
-  }
-  console.log(todos);
   return (
-    <div className="App">
-      <span className='heading'>Taskify</span>
-      <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
-      <TodoList todos={todos} setTodos={setTodos} />
-    </div>
+    <>
+    <Router>
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/spin" element={<Spinner />} />
+          </Routes>
+        </div>
+      </Router>
+      <ToastContainer />
+    </>
   );
 }
 
