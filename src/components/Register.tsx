@@ -6,6 +6,7 @@ import {useNavigate, Link} from 'react-router-dom'
 import {register, reset} from '../features/auth/authSlice'
 import { toast } from 'react-toastify';
 import Spinner from './Spinner';
+import { BsEyeSlash, BsEye } from 'react-icons/bs'
 function Register() {
   const [formData, setFormData] = useState<RegisterForm>({
     firstname: '',
@@ -14,6 +15,7 @@ function Register() {
     password: '',
     password2: '',
   })
+  const [passwordHide, setPasswordHide] = useState<boolean>(false)
 
   const {firstname, lastname, email, password, password2} = formData;
 
@@ -64,6 +66,10 @@ function Register() {
     <Spinner />
   }
 
+  const showText = () => {
+    setPasswordHide((passwordHide) => !passwordHide)
+  }
+
   return (
     <div className='App'>
       <div className='register'>
@@ -77,12 +83,18 @@ function Register() {
           <div className='register_form_div'>
             <input type='text' placeholder='Last Name'  className='register_form_input' id='lastname' name='lastname' value={lastname} onChange={handleChange} />
           </div>
-          <div className='register_form_div'>
+          <div className='register_form_div '>
             <input type='text' placeholder='Email'  className='register_form_input' id='email' name='email' value={email} onChange={handleChange} />
           </div>
           <div className='register_form_div'>
-            <input type='password' placeholder="Password"  className='register_form_input' id='password' name='password' value={password} onChange={handleChange} />
+            <input type={passwordHide ? "text" : "password"} placeholder="Password"  className='register_form_input' id='password' name='password' value={password} onChange={handleChange} />
+            {/* <input type="checkbox" onClick={showText} /> */}
           </div>
+            <div onClick={showText} className="btn_pass">
+              {
+              passwordHide ? <BsEyeSlash color='black' size={20} /> : <BsEye color='black' size={20} />
+            }
+            </div>
           <div  className='register_form_div'>
             <input  className='register_form_input' type='password' placeholder="Confirm Password" name='password2' id='password2' value={password2} onChange={handleChange} />
           </div>

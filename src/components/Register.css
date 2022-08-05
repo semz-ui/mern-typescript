@@ -7,9 +7,14 @@
     text-transform: uppercase;
     font-size: 2.5rem;
     font-weight: bold;
-    color: #A85Cf9;
+    color: orange;
     margin-bottom: 2rem;
     z-index: 1;
+}
+
+.register_form {
+    position: relative;
+    align-items: center;
 }
 
 .register_form_div {
@@ -32,13 +37,23 @@
     margin-bottom: 1.5rem;
 }
 
+
+.btn_pass {
+    position: absolute;
+    margin: -60px 12px;
+    right: -58%;
+    border: none;
+    color: white;
+    /* transition: 0.2s all; */
+}
+
 .register_form_input:focus {
     outline: none;
     box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.5);
 }
 
 .register_form_btn {
-    background-color: #A85Cf9;
+    background-color: orange;
     border: none;
     cursor: pointer;
     width: 220%;
@@ -74,4 +89,12 @@
         width: 120%;
     margin-left: -30px;
     }
+    .btn_pass {
+    /* position: absolute;
+    margin: -60px 12px; */
+    right: -18%;
+    /* border: none;
+    color: white;
+    transition: 0.2s all; */
+}
 }
