@@ -38,13 +38,13 @@ function Register() {
     }
     dispatch(reset())
   }, [user, isError, isSuccess, message, dispatch, navigate])
-
-
+  
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {name, value} = e.target;
     setFormData({...formData, [name]: value})
   }
-
+  
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (password !== password2) {
@@ -63,7 +63,7 @@ function Register() {
   }
 
    if (isLoading) {
-    <Spinner />
+    return <Spinner />
   }
 
   const showText = () => {

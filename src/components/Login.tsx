@@ -50,7 +50,7 @@ function Login() {
   }
   
   if (isLoading) {
-    <Spinner />
+    return <Spinner />
   }
 
   const showText = () => {

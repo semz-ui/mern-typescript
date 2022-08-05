@@ -17,7 +17,7 @@ function InputField({todo, setTodo, handleAdd}: Props) {
         <input type='text' placeholder='Enter a task' className='input__box' value={todo} onChange={(e) => setTodo(e.target.value)} ref={inputRef} />
         <button type='submit' className='input__button'>Go</button>
     </form>
-  )
+  ) 
 }
 
 export default InputField
