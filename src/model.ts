@@ -9,7 +9,7 @@ export interface FormData {
     lastname: string;
     email: string;
     password: string;
-    password2: string;
+    password2: string | undefined;
 }
 
 export interface RegisterForm {
@@ -17,6 +17,7 @@ export interface RegisterForm {
     lastname: string;
     email: string;
     password: string;
+    password2: string | undefined;
 }
 
 export interface LoginForm {

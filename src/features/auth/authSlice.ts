@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import authService from "../auth/authService"
+import authService from "./authService"
 import { RegisterForm, LoginForm} from '../../model'
 
-//get user
+//get user from localstorage
 const user = JSON.parse(localStorage.getItem('user') || 'null');
 
 type InitialState = {
-    user: null,
+    user: any,
     isError: boolean,
     isSuccess: boolean,
     isLoading: boolean,
@@ -35,13 +35,13 @@ const initialState: InitialState = {
                 error.response.data.message) ||
                 error.message ||
                 error.toString();
-            return thunkAPI.rejectWithValue(message);
+            return await thunkAPI.rejectWithValue(message);
             }
         }
     )
 
     // Login a user
-    export const login = createAsyncThunk(
+    export const login: any = createAsyncThunk(
         'auth/login',
         async (user: LoginForm, thunkAPI) => {
             try {
@@ -53,7 +53,7 @@ const initialState: InitialState = {
                 error.response.data.message) ||
                 error.message ||
                 error.toString();
-            return thunkAPI.rejectWithValue(message);
+            return await thunkAPI.rejectWithValue(message);
             }
         }
     )
@@ -71,7 +71,7 @@ const initialState: InitialState = {
                 error.response.data.message) ||
                 error.message ||
                 error.toString();
-            return thunkAPI.rejectWithValue(message);
+            return await thunkAPI.rejectWithValue(message);
             }
         }
     )

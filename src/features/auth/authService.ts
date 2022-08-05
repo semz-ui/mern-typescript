@@ -6,13 +6,14 @@ const API_URL = 'https://taskapp234.herokuapp.com/api/auth/'
 
 
 //register a new user 
-const register = async (userData: RegisterForm) => {
-    const response = await axios.post(API_URL , userData)
-    if(response.data) {
-        localStorage.setItem('user', JSON.stringify(response.data))
-    }
-    return response.data
-}
+const register = async (userData : RegisterForm) => {
+  const response = await axios.post(API_URL, userData);
+
+  if (response.data) {
+    localStorage.setItem("user", JSON.stringify(response.data));
+  }
+  return response.data;
+};
 
 //login a user
 

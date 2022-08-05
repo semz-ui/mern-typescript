@@ -1,14 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import './Register.css'
-import {Link} from 'react-router-dom'
-import {FormData, RegisterForm} from '../model'
+import {RegisterForm} from '../model'
 import { useAppSelector, useAppDispatch } from '../app/hooks';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 import {register, reset} from '../features/auth/authSlice'
 import { toast } from 'react-toastify';
 import Spinner from './Spinner';
 function Register() {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<RegisterForm>({
     firstname: '',
     lastname: '',
     email: '',
@@ -23,17 +22,22 @@ function Register() {
 
   const { user, isLoading, isError, isSuccess, message } = useAppSelector((state: any) => state.auth)
 
-  useEffect(() => {
+  useEffect(() => { 
     if (isError) {
       toast.error(message)
     }
-      
-    if (isSuccess && user) {
-      toast.success(message)
+
+    if (isSuccess) {
+      toast.success("Registration Successful")
+      navigate('/login')
+    }
+    if (user) {
       navigate('/')
     }
     dispatch(reset())
   }, [user, isError, isSuccess, message, dispatch, navigate])
+
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {name, value} = e.target;
     setFormData({...formData, [name]: value})
@@ -43,14 +47,16 @@ function Register() {
     e.preventDefault();
     if (password !== password2) {
       toast.error('Passwords do not match')
-    }
+    } else {
       const userData: RegisterForm = {
         firstname,
         lastname,
         email,
         password,
-      }
+        password2
+    }
       dispatch(register(userData))
+  }
     
   }
 
@@ -81,7 +87,6 @@ function Register() {
             <input  className='register_form_input' type='password' placeholder="Confirm Password" name='password2' id='password2' value={password2} onChange={handleChange} />
           </div>
           <div className='register_form_div'>
-            {/* <input type='submit' placeholder="Register"  className='register_form_btn' /> */}
             <button className='register_form_btn'>Register</button>
           </div>
         </form>
