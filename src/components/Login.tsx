@@ -5,6 +5,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import {login, reset} from '../features/auth/authSlice'
 import { toast } from 'react-toastify';
 import Spinner from './Spinner';
+import { BsEyeSlash, BsEye } from 'react-icons/bs'
 
 
 function Login() {
@@ -12,6 +13,7 @@ function Login() {
     email: '',
     password: '',
   })
+  const [passwordHide, setPasswordHide] = useState<boolean>(false)
 
   const { email, password } = formData;
 
@@ -51,6 +53,10 @@ function Login() {
     <Spinner />
   }
 
+  const showText = () => {
+    setPasswordHide((passwordHide) => !passwordHide)
+  }
+
   return (
     <div className='App'>
       <div className='register'>
@@ -62,10 +68,14 @@ function Login() {
             <input type='text' placeholder='Email'  className='register_form_input' id='email' name='email' value={email} onChange={handleChange} />
           </div>
           <div className='register_form_div'>
-            <input type='password' placeholder="Password"  className='register_form_input' id='password' name='password' value={password} onChange={handleChange} />
+            <input type={passwordHide ? "text" : "password"} placeholder="Password"  className='register_form_input' id='password' name='password' value={password} onChange={handleChange} />
           </div>
+          <div onClick={showText} className="btn_pass">
+              {
+              passwordHide ? <BsEyeSlash color='black' size={20} /> : <BsEye color='black' size={20} />
+            }
+            </div>
           <div className='register_form_div'>
-            {/* <input type='submit' placeholder="Register"  className='register_form_btn' /> */}
             <button className='register_form_btn'>Login</button>
           </div>
         </form>

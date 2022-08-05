@@ -88,7 +88,6 @@ function Register() {
           </div>
           <div className='register_form_div'>
             <input type={passwordHide ? "text" : "password"} placeholder="Password"  className='register_form_input' id='password' name='password' value={password} onChange={handleChange} />
-            {/* <input type="checkbox" onClick={showText} /> */}
           </div>
             <div onClick={showText} className="btn_pass">
               {
