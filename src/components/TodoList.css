@@ -2,8 +2,32 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 90%;
+    width: 100%;
     flex-wrap: wrap;
     margin: 10px;
     align-items: center;
+    background-image: linear-gradient( 
+  330deg,
+  hsl(217deg 94% 75%) 0%,
+  hsl(216deg 94% 76%) 12%,
+  hsl(216deg 94% 76%) 19%,
+  hsl(215deg 94% 77%) 25%,
+  hsl(214deg 94% 77%) 29%,
+  hsl(214deg 94% 77%) 33%,
+  hsl(213deg 94% 78%) 37%,
+  hsl(213deg 94% 78%) 41%,
+  hsl(212deg 94% 79%) 44%,
+  hsl(212deg 94% 79%) 47%,
+  hsl(211deg 94% 80%) 51%,
+  hsl(210deg 94% 80%) 54%,
+  hsl(210deg 93% 81%) 57%,
+  hsl(210deg 93% 81%) 61%,
+  hsl(209deg 93% 82%) 64%,
+  hsl(209deg 92% 82%) 68%,
+  hsl(208deg 92% 83%) 71%,
+  hsl(208deg 91% 84%) 76%,
+  hsl(207deg 90% 84%) 80%,
+  hsl(207deg 90% 85%) 86%,
+  hsl(206deg 89% 85%) 100%
+);
 }

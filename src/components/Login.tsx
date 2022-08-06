@@ -42,11 +42,17 @@ function Login() {
   }
      const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const userData: LoginForm = {
-      email,
-      password,
+    if (!email) {
+      toast.error("Please input email")
+    } else if (!password) {
+      toast.error("Please input password")
+    }else{
+      const userData: LoginForm = {
+        email,
+        password,
+      }
+      dispatch(login(userData))
     }
-    dispatch(login(userData))
   }
 
   
