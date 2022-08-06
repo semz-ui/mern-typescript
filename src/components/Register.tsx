@@ -47,9 +47,12 @@ function Register() {
   
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password !== password2) {
+    if (password.length < 6) {
+      toast.error('Password should be more than 6')
+    } else if (password !== password2) {
       toast.error('Passwords do not match')
-    } else {
+    }
+    else {
       const userData: RegisterForm = {
         firstname,
         lastname,
@@ -78,16 +81,16 @@ function Register() {
       <div className='register_form'>
         <form onSubmit={onSubmit}>
           <div className='register_form_div'>
-            <input  className='register_form_input' type='text' placeholder='First Name' id='firstname' name='firstname' value={firstname} onChange={handleChange} />
+            <input  className='register_form_input' type='text' placeholder='First Name' id='firstname' name='firstname' value={firstname} onChange={handleChange} required />
           </div>
           <div className='register_form_div'>
-            <input type='text' placeholder='Last Name'  className='register_form_input' id='lastname' name='lastname' value={lastname} onChange={handleChange} />
+            <input type='text' placeholder='Last Name'  className='register_form_input' id='lastname' name='lastname' value={lastname} onChange={handleChange} required />
           </div>
           <div className='register_form_div '>
-            <input type='text' placeholder='Email'  className='register_form_input' id='email' name='email' value={email} onChange={handleChange} />
+            <input type='text' placeholder='Email'  className='register_form_input' id='email' name='email' value={email} onChange={handleChange} required />
           </div>
           <div className='register_form_div'>
-            <input type={passwordHide ? "text" : "password"} placeholder="Password"  className='register_form_input' id='password' name='password' value={password} onChange={handleChange} />
+            <input type={passwordHide ? "text" : "password"} placeholder="Password"  className='register_form_input' id='password' name='password' value={password} onChange={handleChange} required />
           </div>
             <div onClick={showText} className="btn_pass">
               {
@@ -95,7 +98,7 @@ function Register() {
             }
             </div>
           <div  className='register_form_div'>
-            <input  className='register_form_input' type='password' placeholder="Confirm Password" name='password2' id='password2' value={password2} onChange={handleChange} />
+            <input  className='register_form_input' type='password' placeholder="Confirm Password" name='password2' id='password2' value={password2} onChange={handleChange} required />
           </div>
           <div className='register_form_div'>
             <button className='register_form_btn'>Register</button>

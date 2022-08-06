@@ -30,8 +30,6 @@ function Dashboard() {
       setTodo("");
     }
   }
-  console.log(todos);
-  console.log(user);
   return (
      <div className="App">
       {
