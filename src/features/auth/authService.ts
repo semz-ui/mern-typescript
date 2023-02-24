@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { RegisterForm, LoginForm } from '../../model'
 
-const API_URL = 'https://taskapp234.herokuapp.com/api/auth/'
+const API_URL = 'https://gray-worrisome-pigeon.cyclic.app/api/auth/'
 // const API_URL = 'http://localhost:5000/api/auth/'
 
 
